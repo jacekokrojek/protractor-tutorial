@@ -1,0 +1,7 @@
+node_modules
+output
+.vscode
+*.log
+.tmp
+allure-results
+allure-report

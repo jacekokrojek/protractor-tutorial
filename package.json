@@ -1,0 +1,42 @@
+{
+  "name": "protractor-typescript-template",
+  "version": "4.0.0",
+  "license": "MIT",
+  "description": "",
+  "homepage": "",
+  "scripts": {
+    "exercise-1": "node -r ts-node/register ./node_modules/protractor/bin/protractor excercises/1-configuration/config.ts",
+    "exercise-1-cmd-params": "node -r ts-node/register ./node_modules/protractor/bin/protractor excercises/1-configuration/config-cmd-params.ts --baseUrl http://jacekokrojek.github.io --params.username=admin --params.password=admin",
+    "exercise-2": "node -r ts-node/register ./node_modules/protractor/bin/protractor excercises/2-locators/config.ts",
+    "exercise-3": "node -r ts-node/register ./node_modules/protractor/bin/protractor excercises/3-synchronization/config.ts",
+    "exercise-4": "node -r ts-node/register ./node_modules/protractor/bin/protractor excercises/4-pop/config.ts",
+    "exercise-5": "node -r ts-node/register ./node_modules/protractor/bin/protractor excercises/5-utils/config.ts",
+    "exercise-6": "node -r ts-node/register ./node_modules/protractor/bin/protractor excercises/6-actions/config.ts",
+    "exercise-8": "node -r ts-node/register ./node_modules/protractor/bin/protractor excercises/8-reporters/config.ts",
+    "postexercise-8": "allure serve allure-results --clean -o allure-report || true",
+    "webdriver-update": "webdriver-manager update",
+    "webdriver-update-77": "webdriver-manager update --versions.chrome 77.0.3865.40",
+    "debug": "node -r ts-node/register --inspect-brk ./node_modules/protractor/bin/protractor config/config.ts"
+  },
+  "author": "Jacek Okrojek",
+  "dependencies": {
+    "@types/jasmine": "^2.8.16",
+    "@types/jasminewd2": "^2.0.8",
+    "@types/node": "^10.17.13",
+    "allure-commandline": "^2.13.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "chance": "^1.0.18",
+    "fs": "0.0.1-security",
+    "jasmine": "2.8.0",
+    "jasmine-allure-reporter": "^1.0.2",
+    "jasmine-reporters": "^2.3.2",
+    "jasmine-spec-reporter": "^4.2.1",
+    "moment": "^2.24.0",
+    "path": "^0.12.7",
+    "protractor": "^5.4.2",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.1",
+    "winston": "^3.2.0"
+  }
+}
