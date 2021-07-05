@@ -1,4 +1,4 @@
-import { browser, element, by, ProtractorExpectedConditions, ExpectedConditions } from 'protractor'
+import { browser, element, by, ProtractorExpectedConditions, ExpectedConditions, protractor} from 'protractor'
 
 describe('angularjs homepage', function () {
 
@@ -18,33 +18,24 @@ describe('angularjs homepage', function () {
 
   it('should allow handling errors', async function () {
     const notExistingElement = element(notExistingElementSelector);
-    try {
-      await notExistingElement.getText();
       // The above line should have throw an error. Fail.
-      expect(true).toEqual(false);
-    } catch (e) {
-      expect(true).toEqual(true);
-    }
+      try{
+        notExistingElement.getText()
+      }catch(err){
+        console.log(err);
+      }
   });
 
   it('should fail if the element is covered', async function () {
-    try {
-      await element(coveredElementSelector).click();
-      expect(false).toBe(true);
-    } catch (e){
-      expect(true).toBe(true);
-    }
+
+      expect(element(coveredElementSelector).click()).toBe(true);
   });
 
   it('should fail if the element is covered and you expect it is clickable', async function () {
-    // https://www.protractortest.org/#/api?view=ProtractorExpectedConditions.prototype.elementToBeClickable
-    browser.wait(until.elementToBeClickable(element(coveredElementSelector)), timeout);
-    try {
-      await element(coveredElementSelector).click();
-      expect(false).toBe(true);
-    } catch (e){
-      expect(true).toBe(true);
-    }
+    let EC = protractor.ExpectedConditions;
+    browser.wait(EC.elementToBeClickable(element(coveredElementSelector)), timeout);
+      expect(element(coveredElementSelector).click()).toBe(false);
+  
   });
 
   it('should pass if you wait for covering element to disapear', async function () {

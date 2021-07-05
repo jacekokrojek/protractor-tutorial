@@ -28,7 +28,8 @@ export const config: Config = {
     },
 
     specs: [
-        "minimal.spec.ts",
+        "admin.spec.ts",
+        "home.spec.ts"
     ],
 
     onPrepare: () => {

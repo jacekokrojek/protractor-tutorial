@@ -13,18 +13,14 @@ describe('Protractor workshop app', function () {
 		expect(await footerCopyright.getText()).toContain(expectedHTML)
 	});
 
-
-	/**
-	 * Check http://angular.github.io/protractor/#/api?view=ElementFinder
-	 * to see how to select element for verification
-	 */
-
-	xit('should have "Example headline 1" carousel item after entering site', function () {
-		//Zadaie : Zlokalizuj i sprawdź element wykorzystując lokatory css
+	it('should have "Example headline 1" carousel item after entering site', async function () {
+		let headlineWithCss = element(by.css('.active  div.carousel-caption > h1')).getText();
+		expect(await headlineWithCss).toEqual("Example Headline 1");
 	});
 
-	xit('should have correct feature header', function () {
-		//Zadaie : Zlokalizuj i sprawdź element wykorzystując lokator XPath
+	it('should have correct feature header', async function () {
+		let headlineWithXpath = element(by.xpath('//*[@id="myCarousel"]/div/div[1]/div/div/div[1]/div/h1')).getText();
+		expect(await headlineWithXpath).toEqual("Example Headline 1");
 	});
 	
 });
