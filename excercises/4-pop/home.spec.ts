@@ -1,5 +1,5 @@
-import { HomePage } from './pages';
-
+import { HomePage} from './pages';
+import {browser} from 'protractor'
 describe('Protractor Workshop app', function() {
 
 	const homePage: HomePage = new HomePage();
@@ -11,12 +11,14 @@ describe('Protractor Workshop app', function() {
 		expect(await homePage.getTitle()).toEqual("Protractor workshop | Home");
 	});
 
-	xit('should have Feature A, Feature B, Feature C sections ...', function () {
-		//TODO: add new function to homePage class and implement the test
+	it('should have Feature A, Feature B, Feature C sections ...', async function () {
+		const FeatureArray = ["Feature A", "Feature B", "Feature C"];
+		expect(await homePage.getAllFeatures()).toEqual(FeatureArray);
 	});
 
-	xit('should have Contact menu item that redirects to correct link to Contact us page', async function(){
-		//TODO: implement menu class and implement the test
+	it('should have Contact menu item that redirects to correct link to Contact us page', async function(){
+		await homePage.openContact();
+		expect((await browser.getCurrentUrl())).toEqual('http://jacekokrojek.github.io/jak-to-zrobic-w-js/contact.html')
 	});
 
 });

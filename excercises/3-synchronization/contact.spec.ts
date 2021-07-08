@@ -11,13 +11,13 @@ describe('Protractor Workshop app', function() {
 		const email = "namenoname@gmail.com";
 		const content = "check content";
 		const succes = "Your message has been sent."
-		const checkSuccess = element(by.xpath("//h4[contains(text(), 'Your message has been sent.')]"));
+		const findkSuccessInformation = element(by.xpath("//h4[contains(text(), 'Your message has been sent.')]"));
 			await element(by.id("name")).sendKeys(name)
     		await element(by.id("email")).sendKeys(email)
     		await element(by.id("content")).sendKeys(content)
 			await element(by.css(".test")).click();
 			let EC = protractor.ExpectedConditions;
-			await browser.wait(EC.visibilityOf(checkSuccess),5000);
+			await browser.wait(EC.visibilityOf(findkSuccessInformation),5000);
 			expect(await element(by.css(".alert-success")).getText()).toEqual(succes);
 
 		});
