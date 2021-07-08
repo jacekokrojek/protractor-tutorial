@@ -10,7 +10,7 @@ export class ContactPage {
     await element(by.id("content")).sendKeys(content);
     await element(by.css(".test")).click();
   }
-<<<<<<< HEAD
+
   async getSuccessInformation() {
     const success = "Your message has been sent.";
     let ec = protractor.ExpectedConditions;
@@ -18,8 +18,7 @@ export class ContactPage {
     await browser.wait(ec.textToBePresentInElement(getkSuccess, success), 6000);
     return getkSuccess.getText();
   }
-=======
->>>>>>> 522a6ffe0993597c0e9d65a63cf7f665690e3a30
+
   async getSectionTitles(){
     return await element.all(by.xpath("//h3")).getText()
 
