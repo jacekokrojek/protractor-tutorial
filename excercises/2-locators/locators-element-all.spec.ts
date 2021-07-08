@@ -23,12 +23,11 @@ describe('Protractor workshop app', function () {
 	});
 
 	it('should route to "Blog" pages after selecting link', async function () {
-		const authorList = ['Author Name', 'Author Name']
+		const authorList = [ 'Author Name', 'Author Name'] 
 		await element(by.xpath("//a[contains(text(), 'Blog')]")).click();
-		let authorNames = await element.all(by.css(".postmetadata>ul>li")).map(async (el) => await el.getText())
-		let filterAuthorNames = authorNames.filter((el) => el == 'Author Name')
+		let getauthorNames = await element.all(by.css(".postmetadata>ul>li")).map(async (el) => await el.getText())
+		let  filterAuthorNames = getauthorNames.filter((el) => el == 'Author Name')
 		expect(filterAuthorNames).toEqual(authorList);
-	
 	});
 
 });

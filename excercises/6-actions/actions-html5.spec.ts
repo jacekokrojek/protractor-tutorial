@@ -1,7 +1,7 @@
 import { browser, element, by, protractor } from 'protractor'
 import * as fs from 'fs';
 
-// Based on http://elementalselenium.com/tips/39-drag-and-drop
+
 let script = fs.readFileSync('excercises/6-actions/dnd.js')
 
 describe('Protractor workshop app', function () {
