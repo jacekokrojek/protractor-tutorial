@@ -1,5 +1,5 @@
 import { browser, element, by } from 'protractor'
-import { getLeadingCommentRanges } from 'typescript';
+
 
 describe('Protractor workshop app', function () {
 
@@ -23,18 +23,11 @@ describe('Protractor workshop app', function () {
 	});
 
 	it('should route to "Blog" pages after selecting link', async function () {
-		const allAuthorNames = [ 'Author Name', 'Author Name', 'Author Name', 'Author Name', 'Author Name' ] 
+		const authorList = [ 'Author Name', 'Author Name'] 
 		await element(by.xpath("//a[contains(text(), 'Blog')]")).click();
-		function onlynames(autor){
-			return autor === 'Author Name' 
-		}
-		let getAuthorNames = await element.all(by.xpath("//*/a[contains(text(), 'Author Name')]")).map((autor)=>{
-			return autor.getText();
-		})
-		getAuthorNames.filter(onlynames);
-				
-		expect(getAuthorNames).toEqual(allAuthorNames);
-	
+		let getauthorNames = await element.all(by.css(".postmetadata>ul>li")).map(async (el) => await el.getText())
+		let  filterAuthorNames = getauthorNames.filter((el) => el == 'Author Name')
+		expect(filterAuthorNames).toEqual(authorList);
 	});
 
 });

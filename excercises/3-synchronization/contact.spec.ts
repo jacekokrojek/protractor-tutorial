@@ -18,7 +18,8 @@ describe('Protractor Workshop app', function() {
 			await element(by.css(".test")).click();
 			let EC = protractor.ExpectedConditions;
 			await browser.wait(EC.visibilityOf(findkSuccessInformation),5000);
-			expect(await element(by.css(".alert-success")).getText()).toEqual(succes);
+			let getSuccess = await element(by.css(".alert-success"))	
+			expect(getSuccess.isPresent()).toBe(true);	
 
 		});
 

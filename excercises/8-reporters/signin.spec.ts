@@ -1,3 +1,4 @@
+import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from 'constants';
 import {SignIn, Admin} from './pages'
 import { UserRepository } from './utils/users/user-repository';
 describe('Protractor Workshop app', function() {
@@ -10,8 +11,13 @@ describe('Protractor Workshop app', function() {
 	});
 
 	it('should redirect to admin dashboard when user provides correct credentials', async function(){
-		await signIn.as(UserRepository.admin())
-		expect(await admin.isLoaded()).toBe(true)
+		
+			await allure.createStep('Admin Login', async ()=>{
+			await signIn.as(UserRepository.admin())
+			expect(await admin.isLoaded()).toBe(true)
+		})
+		})
+
 	});
 
-});
+

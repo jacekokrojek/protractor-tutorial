@@ -10,19 +10,10 @@ export class ContactPage {
     await element(by.id("content")).sendKeys(content);
     await element(by.css(".test")).click();
   }
-  async getSuccessInformation() {
-    const success = "Your message has been sent.";
-    let ec = protractor.ExpectedConditions;
-    let getSuccess = element(by.css(".alert-success"));
-    await browser.wait(ec.textToBePresentInElement(getSuccess, success), 6000);
-    return getSuccess.getText();
-  }
   async getSectionTitles(){
     return await element.all(by.xpath("//h3")).getText()
 
   };
-  
-
   async openContact() {
     await element(by.xpath("//a[contains(text(), 'Contact')]")).click();
   }

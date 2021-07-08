@@ -8,8 +8,9 @@ describe('Protractor Workshop app', function() {
 
 	it('should display text "Your message has been sent." when user sends a message', async function(){
 		const success = "Your message has been sent."
-		await contactPage.fillUpFormAndSubmitt("name noname","name.noname@gmail.com","content");		
-		expect(await contactPage.getSuccessInformation()).toEqual(success);
+		await contactPage.fillUpFormAndSubmitt("name noname","name.noname@gmail.com","content");
+		let getSuccess = await element(by.css(".alert-success"))	
+		expect(getSuccess.isPresent()).toBe(true);	
 	});
 
 	it('should have "Get in touch" and "Address" sections on Contact Us page', async function(){

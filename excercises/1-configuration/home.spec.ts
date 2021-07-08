@@ -1,4 +1,4 @@
-import { browser, element, by } from 'protractor'
+import { browser} from 'protractor'
 describe('Protractor workshop app', function () {
 	beforeEach(async function () {
 	await browser.get("/jak-to-zrobic-w-js")
