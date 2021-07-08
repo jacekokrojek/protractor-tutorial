@@ -9,10 +9,7 @@ describe('Protractor Workshop app', function() {
 	it('should display text "Your message has been sent." when user sends a message', async function(){
 		const success = "Your message has been sent."
 		await contactPage.fillUpFormAndSubmitt("name noname","name.noname@gmail.com","content");		
-		const findkSuccessInformation = element(by.xpath("//h4[contains(text(), 'Your message has been sent.')]"));
-		let EC = protractor.ExpectedConditions;
-		await browser.wait(EC.visibilityOf(findkSuccessInformation),5000);
-		expect(findkSuccessInformation.isDisplayed()).toBe(true);
+		expect(contactPage.getSuccessInformation()).toEqual(success);
 
 	});
 

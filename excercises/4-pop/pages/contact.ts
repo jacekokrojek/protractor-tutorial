@@ -13,9 +13,9 @@ export class ContactPage {
   async getSuccessInformation() {
     const success = "Your message has been sent.";
     let ec = protractor.ExpectedConditions;
-    let getSuccess = element(by.css(".alert-success"));
-    await browser.wait(ec.textToBePresentInElement(getSuccess, success), 6000);
-    return getSuccess.getText();
+    const getkSuccess = element(by.xpath("//h4[contains(text(), 'Your message has been sent.')]"));
+    await browser.wait(ec.textToBePresentInElement(getkSuccess, success), 6000);
+    return getkSuccess.getText();
   }
   async getSectionTitles(){
     return await element.all(by.xpath("//h3")).getText()
