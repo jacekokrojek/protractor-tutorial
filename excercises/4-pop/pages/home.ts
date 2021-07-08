@@ -14,13 +14,12 @@ export class HomePage {
   async getTitle () {
     return await browser.getTitle();
   };
-
-  async clickMenuAtIdx (idx) {
-    await this.getMenuTextAtIdx(idx).click();
+  getAllFeatures(){
+  return element.all(by.xpath("//h2")).map((el) => {
+		 return el.getText();
+		});
+  }
+  async openContact(){
+    await  element(by.xpath("//a[contains(text(), 'Contact')]")).click();
   };
-
-  private getMenuTextAtIdx (idx) {
-    return this.menuItems.get(idx);
-  };
-  
 };

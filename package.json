@@ -20,23 +20,26 @@
   },
   "author": "Jacek Okrojek",
   "dependencies": {
-    "@types/jasmine": "^2.8.16",
-    "@types/jasminewd2": "^2.0.8",
-    "@types/node": "^10.17.13",
-    "allure-commandline": "^2.13.0",
-    "chai": "^4.1.2",
+    "@types/jasmine": "^3.7.7",
+    "@types/jasminewd2": "^2.0.9",
+    "@types/node": "^16.0.0",
+    "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "chance": "^1.0.18",
+    "chance": "^1.1.7",
     "fs": "0.0.1-security",
-    "jasmine": "2.8.0",
+    "jasmine": "3.8.0",
     "jasmine-allure-reporter": "^1.0.2",
-    "jasmine-reporters": "^2.3.2",
-    "jasmine-spec-reporter": "^4.2.1",
-    "moment": "^2.24.0",
+    "jasmine-reporters": "^2.4.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "moment": "^2.29.1",
     "path": "^0.12.7",
-    "protractor": "^5.4.2",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.0.1",
-    "winston": "^3.2.0"
+    "protractor": "^7.0.0",
+    "sikuli": "^1.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.13.8"
   }
 }

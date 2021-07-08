@@ -11,53 +11,50 @@ describe('angularjs homepage', function () {
     await browser.get("/jak-to-zrobic-w-js/admin");
   })
 
-  it('should not fail if element is not present', async function () {
-    const notExistingElement = element(notExistingElementSelector);
-    expect(await notExistingElement.isPresent()).toEqual(false);
-  });
-
-  it('should allow handling errors', async function () {
-    const notExistingElement = element(notExistingElementSelector);
-    try {
-      await notExistingElement.getText();
-      // The above line should have throw an error. Fail.
-      expect(true).toEqual(false);
-    } catch (e) {
-      expect(true).toEqual(true);
+  xit('should not fail if element is not present', async function () {
+    let err = ()=>{
+        throw new TypeError("Element is  present");
     }
+    const notExistingElement = element(notExistingElementSelector);
+    let presentElement = await notExistingElement.isPresent()
+    
+    expect(async function() {presentElement}).toThrowError(err());
+  });
+  xit('should allow handling errors', async function () {
+    const notExistingElement = element(notExistingElementSelector);
+    let err = ()=>{
+      throw new TypeError("Fail");
+  }
+    expect(async function() {  await notExistingElement.getText();}).toThrowError(err());
   });
 
-  it('should fail if the element is covered', async function () {
-    try {
-      await element(coveredElementSelector).click();
-      expect(false).toBe(true);
-    } catch (e){
-      expect(true).toBe(true);
-    }
+  xit('should fail if the element is covered', async function () {
+    let err = ()=>{
+      throw new TypeError("Element is covered");
+  }
+    expect(async function() {await element(coveredElementSelector).click()}).toThrowError(err());
   });
 
-  it('should fail if the element is covered and you expect it is clickable', async function () {
-    // https://www.protractortest.org/#/api?view=ProtractorExpectedConditions.prototype.elementToBeClickable
+  xit('should fail if the element is covered and you expect it is clickable', async function () {
     browser.wait(until.elementToBeClickable(element(coveredElementSelector)), timeout);
-    try {
-      await element(coveredElementSelector).click();
-      expect(false).toBe(true);
-    } catch (e){
-      expect(true).toBe(true);
-    }
+    let err = ()=>{
+      throw new TypeError("Element is not present");
+  }
+    expect(async function() { await element(coveredElementSelector).click()}).toThrowError(err());
   });
 
   it('should pass if you wait for covering element to disapear', async function () {
     let coveringElement = element(by.css("#loading"));
     await browser.wait(until.invisibilityOf(coveringElement), timeout);
     await element(coveredElementSelector).click();
+    expect(coveringElement).toBeTruthy();
   });
 
   it('should click if you really want to, but nothing might happen', async function () {
-    await browser.actions().
-      mouseMove(element(coveredElementSelector)).
-      click().
-      perform();
+    await browser.actions().mouseMove(element(coveredElementSelector)).click().
+    perform();
+    expect(true).toBe(true);
+
   });
 
   it('should be usable in WebDriver functions', async function () {
