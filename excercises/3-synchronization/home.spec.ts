@@ -7,7 +7,6 @@ describe('Protractor Workshop app', function() {
 
 	
 	it('should hide GDRP popup after clicking Accept', async function(){
-		browser.sleep(10000);
 		let EC = protractor.ExpectedConditions;
 		let accpetGDRP = element(by.css("div.cookieButton a"))
 		await accpetGDRP .isPresent();
